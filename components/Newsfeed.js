@@ -5,11 +5,11 @@ import ArticleBlurb from './ArticleBlurb';
 
 const Newsfeed = props => {
   const [articles, setArticles] = useState([])
-  const APIKEY = 'xxxx'
+  const APIKEY = 'xxx'
 
   useEffect(() => {
     if (props.searchTerm) {
-      axios.get(`http://newsapi.org/v2/everything?q=dogs&from=2020-11-23&sortBy=publishedAt&apiKey=${APIKEY}`)
+      axios.get(`http://newsapi.org/v2/everything?q=${props.searchTerm}&from=2020-11-23&sortBy=publishedAt&apiKey=${APIKEY}`)
       .then(res => {
         const articleList = res.data;
         setArticles(articleList['articles'])
@@ -21,7 +21,7 @@ const Newsfeed = props => {
         setArticles(articleList['articles'])
       }).catch(e => console.log(e))
     }
-  }, [setArticles])
+  }, [props.searchTerm, setArticles])
 
   return (
     <View style={{...styles.newsfeed, ...props.style}}>
