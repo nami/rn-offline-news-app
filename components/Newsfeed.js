@@ -7,7 +7,7 @@ const STORAGE_KEY = '@save_articles'
 
 const Newsfeed = props => {
   const [articles, setArticles] = useState([])
-  const APIKEY = 'xxx'
+  const APIKEY = 'baa10bc9380d4021a1753561dffb35e6'
 
   const readData = async () => {
     try {

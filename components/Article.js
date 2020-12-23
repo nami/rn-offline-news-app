@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View, Modal, Image, Button } from 'react-native';
+import { StyleSheet, Text, View, Modal, Image, Button, ScrollView } from 'react-native';
 
 const Article = props => {
   return (
     <Modal visible={props.visible} animationType="slide">
-      <View style={styles.article}>
+      <ScrollView style={styles.article}>
         <View style={styles.buttonContainer}>
           <Button color="gray" title="X" onPress={() => props.close(false)} />
         </View>
@@ -22,7 +22,7 @@ const Article = props => {
               onPress={() => Linking.openURL(`${props.url}`)}>
           {props.url}
         </Text>
-      </View>
+      </ScrollView>
     </Modal>
   )
 }
@@ -30,8 +30,8 @@ const Article = props => {
 const styles = StyleSheet.create({
   article: {
     flex: 1, 
-    marginTop: 64,
-    marginHorizontal: 36
+    marginVertical: 36,
+    paddingHorizontal: 36
   },
   buttonContainer: {
     alignItems: 'flex-end',

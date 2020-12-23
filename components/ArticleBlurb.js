@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   },
   img: {
     height: 150,
-    width: 345,
+    width: 330,
     marginBottom: 16
   },
   title: {
