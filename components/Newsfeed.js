@@ -4,7 +4,6 @@ import axios from 'axios';
 import ArticleBlurb from './ArticleBlurb';
 
 const STORAGE_KEY = '@save_articles'
-const STORAGE_SEARCH_TERM = '@save_search_term'
 
 const Newsfeed = props => {
   const [articles, setArticles] = useState([])
