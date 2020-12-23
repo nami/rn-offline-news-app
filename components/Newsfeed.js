@@ -33,6 +33,8 @@ const Newsfeed = props => {
             title={itemData.item.title} 
             description={itemData.item.description} 
             photo={itemData.item.urlToImage}
+            content={itemData.item.content}
+            url={itemData.item.url}
           />
         }
       />

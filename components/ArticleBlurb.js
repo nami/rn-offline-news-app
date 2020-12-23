@@ -1,18 +1,33 @@
-import React from 'react';
-import { StyleSheet, Text, Image, View } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, Image, View, TouchableOpacity } from 'react-native';
+import Article from './Article';
 
 const ArticleBlurb = props => {
+   const [showArticle, setShowArticle] = useState(false)
+
   return (
-    <View style={{...styles.blurb, ...props.style}}>
-      <Image 
-        style={styles.img}
-        resizeMode='cover'
-        source={{
-          uri: `${props.photo}`
-        }} 
+    <View>
+      <TouchableOpacity onPress={() => setShowArticle(true)}>
+        <View style={styles.blurb}>
+          <Image 
+            style={styles.img}
+            resizeMode='cover'
+            source={{
+              uri: `${props.photo}`
+            }} 
+          />
+          <Text style={styles.title}>{props.title}</Text>
+          <Text>{props.description}</Text>
+        </View>
+      </TouchableOpacity>
+      <Article 
+        visible={showArticle} 
+        photo={props.photo} 
+        content={props.content} 
+        title={props.title} 
+        url={props.url}
+        close={setShowArticle}
       />
-      <Text style={styles.title}>{props.title}</Text>
-      <Text>{props.description}</Text>
     </View>
   )
 }
