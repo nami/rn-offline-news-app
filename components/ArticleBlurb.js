@@ -6,7 +6,7 @@ const ArticleBlurb = props => {
    const [showArticle, setShowArticle] = useState(false)
 
   return (
-    <View>
+    <View style={styles.blurbContainer}>
       <TouchableOpacity onPress={() => setShowArticle(true)}>
         <View style={styles.blurb}>
           <Image 
@@ -33,6 +33,9 @@ const ArticleBlurb = props => {
 }
 
 const styles = StyleSheet.create({
+  blurbContainer: {
+    flex: 1
+  },
   blurb: {
     marginVertical: 16,
     marginHorizontal: 24,
