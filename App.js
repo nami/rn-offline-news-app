@@ -14,7 +14,7 @@ export default function App() {
       <Text style={styles.title}>News of the World</Text>
       <StatusBar style="auto" />
       <Search setSearchTerm={setSearchTerm} />
-      <Newsfeed searchTerm={searchTerm} />
+      <Newsfeed searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
     </View>
   );
 }

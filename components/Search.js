@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, TextInput, View, Button } from 'react-native';
+import * as Network from 'expo-network';
 
 const Search = props => {
   const [input, setInput] = useState('')
