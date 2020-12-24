@@ -7,7 +7,7 @@ const STORAGE_KEY = '@save_articles'
 
 const Newsfeed = props => {
   const [articles, setArticles] = useState([])
-  const APIKEY = 'baa10bc9380d4021a1753561dffb35e6'
+  const APIKEY = 'xxx'
 
   const readData = async () => {
     try {
@@ -22,7 +22,7 @@ const Newsfeed = props => {
   }
 
   const saveData = async (obj) => {
-    // clearStorage()
+    clearStorage()
 
     try {
       await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(obj))
@@ -61,7 +61,7 @@ const Newsfeed = props => {
   }, [props.searchTerm, setArticles])
 
   return (
-    <View style={{...styles.newsfeed, ...props.style}}>
+    <View style={styles.newsfeed}>
       <FlatList 
         keyExtractor={(item, index) => item.url}
         data={articles} 
@@ -81,7 +81,8 @@ const Newsfeed = props => {
 
 const styles = StyleSheet.create({
   newsfeed: {
-    marginTop: 16,
+    flex: 1,
+    marginVertical: 16,
   }
 });
 
