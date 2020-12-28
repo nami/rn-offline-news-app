@@ -54,14 +54,14 @@ const Newsfeed = props => {
         const articleList = res.data['articles'];
         saveData(articleList)
       }).catch(e => console.log(e))
-    } else if (!articles.length > 0) {
+    } else {
       axios.get(`https://gnews.io/api/v4/top-headlines?token=${APIKEY}`)
       .then(res => {
         const articleList = res.data['articles'];
         saveData(articleList)
       }).catch(e => console.log(e))
     }
-  }, [props.searchTerm, setArticles])
+  }, [props.searchTerm, setArticles, props.isConnected])
 
   return (
     <View style={styles.newsfeed}>

@@ -11,7 +11,7 @@ const Search = props => {
 
   const setTerm = () => {
     props.setSearchTerm(input)
-    setInput('')
+    // setInput('')
   }
 
   return (

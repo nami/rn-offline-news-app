@@ -17,7 +17,7 @@ export default function App() {
       { isConnected ? <Text style={styles.connected}>Connected</Text> : 
                   <Text style={styles.notconnected}>Not Connected</Text>}
       <StatusBar style="auto" />
-      <Search setSearchTerm={setSearchTerm} />
+      <Search setSearchTerm={setSearchTerm} isConnected={isConnected} />
       <Newsfeed searchTerm={searchTerm} setSearchTerm={setSearchTerm} isConnected={isConnected} />
     </View>
   );
