@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, FlatList, AsyncStorage } from 'react-native';
 import axios from 'axios';
 import ArticleBlurb from './ArticleBlurb';
+import useConnectInfo from './useConnectInfo';
 
 const STORAGE_KEY = '@save_articles'
+const APIKEY = 'xxx'
 
 const Newsfeed = props => {
   const [articles, setArticles] = useState([])
-  const APIKEY = 'xxx'
+  const netInfo = useConnectInfo()
 
   const readData = async () => {
     try {

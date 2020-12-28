@@ -3,18 +3,22 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, AsyncStorage, TouchableOpacity } from 'react-native'
 import Search from './components/Search';
 import Newsfeed from './components/Newsfeed';
+import useConnectInfo from './components/useConnectInfo'
 
 const STORAGE_KEY = '@save_name'
 
 export default function App() {
   const [searchTerm, setSearchTerm] = useState('')
+  const isConnected = useConnectInfo()
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>News of the World</Text>
+      { isConnected ? <Text style={styles.connected}>Connected</Text> : 
+                  <Text style={styles.notconnected}>Not Connected</Text>}
       <StatusBar style="auto" />
       <Search setSearchTerm={setSearchTerm} />
-      <Newsfeed searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      <Newsfeed searchTerm={searchTerm} setSearchTerm={setSearchTerm} isConnected={isConnected} />
     </View>
   );
 }
@@ -30,5 +34,15 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 36,
     fontWeight: "bold"
+  },
+  connected: {
+    marginTop: 16,
+    fontWeight: "bold",
+    color: "green"
+  },
+  notconnected: {
+    marginTop: 16,
+    fontWeight: "bold",
+    color: "red"
   }
 });
