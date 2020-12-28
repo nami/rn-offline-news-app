@@ -46,15 +46,16 @@ const Newsfeed = props => {
 
   useEffect(() => {
     readData()
+    if (!props.isConnected) return
 
     if (props.searchTerm) {
-      axios.get(`http://newsapi.org/v2/everything?q=${props.searchTerm}&from=2020-11-23&sortBy=publishedAt&apiKey=${APIKEY}`)
+      axios.get(`https://gnews.io/api/v4/search?q=${props.searchTerm}&token=${APIKEY}`)
       .then(res => {
         const articleList = res.data['articles'];
         saveData(articleList)
       }).catch(e => console.log(e))
     } else if (!articles.length > 0) {
-      axios.get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${APIKEY}`)
+      axios.get(`https://gnews.io/api/v4/top-headlines?token=${APIKEY}`)
       .then(res => {
         const articleList = res.data['articles'];
         saveData(articleList)
@@ -71,7 +72,7 @@ const Newsfeed = props => {
           <ArticleBlurb 
             title={itemData.item.title} 
             description={itemData.item.description} 
-            photo={itemData.item.urlToImage}
+            photo={itemData.item.image}
             content={itemData.item.content}
             url={itemData.item.url}
           />
